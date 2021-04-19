@@ -128,7 +128,7 @@ function chime() {
 	snd.play();
 }
 
-var timerValue = 120
+var timerValue = 180
 function startCountdown(){
 	timerValue -= 1;
 	$('.timerValue').html(timerValue)
