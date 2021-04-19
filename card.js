@@ -86,7 +86,27 @@ function updateCardData(){
 	
 	var taboo_words_holders = $('#taboos-div').children('p')
 	for (var i = 0; i < taboo_words_holders.length; i++){
-		taboo_words_holders[i].innerHTML = taboo_words[i]
+    if (i == 0) {
+      let myArray = ["Baby", "Sex", "Ramadan", "Fasting", "Parents", "Home", "Canada", "America", "Pakistan", "Dates", "Maheen", "Abubakar", "Long-Distance", "Kiss", "Zoom", "Mom", "Dad", "Hug", "Legs", "Womb", "Vaccine", "Paratha", "Keto", "Thesis", "AT&T", "Love", "Happiness", "Art", "Laughter", "Sunrise", "Cooking", "Mustafa", "Noorah"];
+      console.log(myArray.length)
+      let i = myArray[Math.floor(Math.random()*myArray.length)];
+      word = "<b>topic:</b> " + i;
+    } else if (i==2) {
+      let myArray = Array(3).fill(["Couplet (AABB)", "Monorhyme (AAAA)", "Simple (ABCB)", "Triplet (AAA)", "Limerick (AABBA)"]).flat()
+      myArray.push("Free verse (ABCD)")
+      myArray.push("Chained (ABA BCB)")
+      console.log(myArray.length)
+      let i = myArray[Math.floor(Math.random()*myArray.length)];
+      word = "<b>type:</b> " + i;
+    } else if (i==4) {
+      let myArray = ["left", "chair", "park", "phone", "jump", "rub", "red", "ball", "eye", "walk", "day", "bed", "nail", "quiz", "tail", "shoe"];
+      console.log(myArray.length)
+      let i = myArray[Math.floor(Math.random()*myArray.length)];
+      word = "<b>with the word:</b> " + i
+    } else {
+      word = ""
+    }
+    taboo_words_holders[i].innerHTML = word
 	}
 
 	//update param in URL
@@ -108,7 +128,7 @@ function chime() {
 	snd.play();
 }
 
-var timerValue = 60
+var timerValue = 120
 function startCountdown(){
 	timerValue -= 1;
 	$('.timerValue').html(timerValue)
